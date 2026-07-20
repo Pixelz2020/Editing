@@ -182,7 +182,7 @@ export const siteConfig: SiteConfig = {
   // BRAND & CONTACT PLACEHOLDERS (replace with real details)
   // ════════════════════════════════════
   brandName: "PIXELZ",         // Replace with e.g. "سينما فيجن | CinemaVision"
-  ownerName: "طارق جادالحق",         // Replace with e.g. "طارق جادالحق | Ahmed El-Sherif"
+  ownerName: "طارق جادالحق",         // Replace with e.g. "طارق جادالحق | Tarek Gad"
   whatsappNumber: "201012345678",     // Replace with international number, e.g., "201012345678" (Egypt) without "+" or "00"
   email: "contact@pixelzstudio.com",                 // Replace with e.g. "contact@cinemavision.com"
   city: {
