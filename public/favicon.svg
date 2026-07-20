@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="8" fill="#1A0B2E"/>
+  <!-- Vector representation of voxel 'P' logo -->
+  <path d="M 9 6 L 20 6 C 24.5 6 26.5 8 26.5 11 C 26.5 14 24.5 16 20 16 L 14 16 L 14 26 L 9 26 Z" fill="url(#pGrad)"/>
+  <!-- Inner play button -->
+  <polygon points="15,10 15,14 19,12" fill="#FFE066"/>
+  <defs>
+    <linearGradient id="pGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stopColor="#7B1FA2" />
+      <stop offset="50%" stopColor="#FF2D7A" />
+      <stop offset="100%" stopColor="#FF8A00" />
+    </linearGradient>
+  </defs>
+</svg>
