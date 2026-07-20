@@ -34,7 +34,7 @@ export default function AdminPanel({ lang, onClose }: AdminPanelProps) {
   const [pwdMessage, setPwdMessage] = useState<{ text: string; error: boolean } | null>(null);
 
   // Active Tab
-  const [activeTab, setActiveTab] = useState<'general' | 'hero' | 'portfolio' | 'cases' | 'services' | 'timeline' | 'testimonials' | 'team' | 'contact'>('general');
+  const [activeTab, setActiveTab] = useState<'general' | 'hero' | 'portfolio' | 'cases' | 'thumbnails' | 'services' | 'timeline' | 'testimonials' | 'team' | 'contact'>('general');
 
   // Pulsing Save Action
   const [isSaving, setIsSaving] = useState(false);
@@ -243,6 +243,7 @@ export default function AdminPanel({ lang, onClose }: AdminPanelProps) {
               { id: 'hero', label: lang === 'ar' ? 'الواجهة الرئيسية والفيديو' : 'Hero & Showreel', icon: Film },
               { id: 'portfolio', label: lang === 'ar' ? 'معرض الأعمال والشورتس' : 'Curated Portfolio', icon: Tv },
               { id: 'cases', label: lang === 'ar' ? 'الهوية البصرية والحالة' : 'Visual Identity Suite', icon: Image },
+              { id: 'thumbnails', label: lang === 'ar' ? 'أعمال الأغلفة والبوسترات' : 'Covers & Artworks', icon: Plus },
               { id: 'services', label: lang === 'ar' ? 'الخدمات وباقات العمل' : 'Services & Offers', icon: Info },
               { id: 'timeline', label: lang === 'ar' ? 'خطوات ورحلة العمل' : 'Work Process Steps', icon: Clock },
               { id: 'testimonials', label: lang === 'ar' ? 'آراء شركاء النجاح' : 'Success Stories', icon: MessageSquare },
@@ -951,6 +952,33 @@ export default function AdminPanel({ lang, onClose }: AdminPanelProps) {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div className="space-y-1">
+                        <label className="text-[10px] text-brand-secondary font-bold font-mono">{lang === 'ar' ? 'اسم الصفحة / القناة (عربي)' : 'Name / Title (Ar)'}</label>
+                        <input 
+                          type="text"
+                          value={cs.title.ar}
+                          onChange={(e) => {
+                            const updated = [...siteData.caseStudies];
+                            updated[idx].title.ar = e.target.value;
+                            updateSiteData({ caseStudies: updated });
+                          }}
+                          className="w-full px-3 py-2 text-xs rounded-lg bg-white/5 border border-white/10 text-white"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[10px] text-brand-secondary font-bold font-mono">{lang === 'ar' ? 'اسم الصفحة / القناة (إنجليزي)' : 'Name / Title (En)'}</label>
+                        <input 
+                          type="text"
+                          value={cs.title.en}
+                          onChange={(e) => {
+                            const updated = [...siteData.caseStudies];
+                            updated[idx].title.en = e.target.value;
+                            updateSiteData({ caseStudies: updated });
+                          }}
+                          className="w-full px-3 py-2 text-xs rounded-lg bg-white/5 border border-white/10 text-white"
+                        />
+                      </div>
+
+                      <div className="space-y-1">
                         <label className="text-[10px] text-gray-400">{lang === 'ar' ? 'العميل المستهدف (عربي)' : 'Client Domain (Ar)'}</label>
                         <input 
                           type="text"
@@ -993,7 +1021,7 @@ export default function AdminPanel({ lang, onClose }: AdminPanelProps) {
                       </div>
 
                       <div className="space-y-1">
-                        <label className="text-[10px] text-gray-400">{lang === 'ar' ? 'رابط صورة الغلاف الفنية' : 'Cover Art Image Link'}</label>
+                        <label className="text-[10px] text-gray-400">{lang === 'ar' ? 'رابط صورة المعاينة الفنية' : 'Fallback Preview Image Link'}</label>
                         <input 
                           type="text"
                           value={cs.image}
@@ -1003,6 +1031,102 @@ export default function AdminPanel({ lang, onClose }: AdminPanelProps) {
                             updateSiteData({ caseStudies: updated });
                           }}
                           className="w-full px-3 py-2 text-xs rounded-lg bg-white/5 border border-white/10 text-white font-mono"
+                        />
+                      </div>
+
+                      {/* Brand Identity Custom Fields */}
+                      <div className="space-y-1">
+                        <label className="text-[10px] text-brand-secondary font-bold font-mono">
+                          {cs.type === 'facebook' 
+                            ? (lang === 'ar' ? 'رابط لوجو الصفحة' : 'Page Logo Link')
+                            : (lang === 'ar' ? 'رابط لوجو القناة' : 'Channel Logo Link')}
+                        </label>
+                        <input 
+                          type="text"
+                          value={cs.logoUrl || ''}
+                          onChange={(e) => {
+                            const updated = [...siteData.caseStudies];
+                            updated[idx].logoUrl = e.target.value;
+                            updateSiteData({ caseStudies: updated });
+                          }}
+                          placeholder="https://..."
+                          className="w-full px-3 py-2 text-xs rounded-lg bg-white/5 border border-white/10 text-white font-mono"
+                        />
+                      </div>
+
+                      <div className="space-y-1">
+                        <label className="text-[10px] text-brand-secondary font-bold font-mono">
+                          {cs.type === 'facebook' 
+                            ? (lang === 'ar' ? 'رابط صورة غلاف الصفحة' : 'Page Cover Link')
+                            : (lang === 'ar' ? 'رابط صورة غلاف القناة' : 'Channel Cover Link')}
+                        </label>
+                        <input 
+                          type="text"
+                          value={cs.coverUrl || ''}
+                          onChange={(e) => {
+                            const updated = [...siteData.caseStudies];
+                            updated[idx].coverUrl = e.target.value;
+                            updateSiteData({ caseStudies: updated });
+                          }}
+                          placeholder="https://..."
+                          className="w-full px-3 py-2 text-xs rounded-lg bg-white/5 border border-white/10 text-white font-mono"
+                        />
+                      </div>
+
+                      <div className="space-y-1 md:col-span-2">
+                        <label className="text-[10px] text-brand-secondary font-bold font-mono">
+                          {cs.type === 'facebook' 
+                            ? (lang === 'ar' ? 'رابط صورة بوستر المنشور' : 'Page Poster Image Link')
+                            : (lang === 'ar' ? 'رابط فيديو يوتيوب (ID أو الرابط الكامل)' : 'YouTube Video Link/ID')}
+                        </label>
+                        <input 
+                          type="text"
+                          value={cs.mediaUrl || ''}
+                          onChange={(e) => {
+                            const updated = [...siteData.caseStudies];
+                            updated[idx].mediaUrl = e.target.value;
+                            updateSiteData({ caseStudies: updated });
+                          }}
+                          placeholder={cs.type === 'facebook' ? 'https://...' : 'ScMzIvxBSi4'}
+                          className="w-full px-3 py-2 text-xs rounded-lg bg-white/5 border border-white/10 text-white font-mono"
+                        />
+                      </div>
+
+                      <div className="space-y-1 md:col-span-2">
+                        <label className="text-[10px] text-brand-secondary font-bold font-mono">
+                          {cs.type === 'facebook' 
+                            ? (lang === 'ar' ? 'نص المنشور (عربي)' : 'Post Text (Arabic)')
+                            : (lang === 'ar' ? 'وصف القناة (عربي)' : 'Channel Description (Arabic)')}
+                        </label>
+                        <textarea 
+                          value={cs.postText?.ar || ''}
+                          onChange={(e) => {
+                            const updated = [...siteData.caseStudies];
+                            if (!updated[idx].postText) updated[idx].postText = { ar: '', en: '' };
+                            updated[idx].postText!.ar = e.target.value;
+                            updateSiteData({ caseStudies: updated });
+                          }}
+                          rows={2}
+                          className="w-full px-3 py-2 text-xs rounded-lg bg-white/5 border border-white/10 text-white resize-none"
+                        />
+                      </div>
+
+                      <div className="space-y-1 md:col-span-2">
+                        <label className="text-[10px] text-brand-secondary font-bold font-mono">
+                          {cs.type === 'facebook' 
+                            ? (lang === 'ar' ? 'نص المنشور (إنجليزي)' : 'Post Text (English)')
+                            : (lang === 'ar' ? 'وصف القناة (إنجليزي)' : 'Channel Description (English)')}
+                        </label>
+                        <textarea 
+                          value={cs.postText?.en || ''}
+                          onChange={(e) => {
+                            const updated = [...siteData.caseStudies];
+                            if (!updated[idx].postText) updated[idx].postText = { ar: '', en: '' };
+                            updated[idx].postText!.en = e.target.value;
+                            updateSiteData({ caseStudies: updated });
+                          }}
+                          rows={2}
+                          className="w-full px-3 py-2 text-xs rounded-lg bg-white/5 border border-white/10 text-white resize-none"
                         />
                       </div>
 
@@ -1075,8 +1199,7 @@ export default function AdminPanel({ lang, onClose }: AdminPanelProps) {
                   <div className="flex gap-3">
                     {[
                       { key: 'facebook', label: lang === 'ar' ? 'صفحة فيسبوك' : 'Facebook Page', color: 'from-[#00c6ff] to-[#0072ff]' },
-                      { key: 'youtube', label: lang === 'ar' ? 'قناة يوتيوب' : 'YouTube Channel', color: 'from-[#FF2D7A] to-[#FF8A00]' },
-                      { key: 'covers', label: lang === 'ar' ? 'أغلفة وصور' : 'Premium Covers', color: 'from-[#D8B4FE] to-[#818CF8]' }
+                      { key: 'youtube', label: lang === 'ar' ? 'قناة يوتيوب' : 'YouTube Channel', color: 'from-[#FF2D7A] to-[#FF8A00]' }
                     ].map((type) => (
                       <button
                         key={type.key}
@@ -1095,7 +1218,14 @@ export default function AdminPanel({ lang, onClose }: AdminPanelProps) {
                             results: { ar: ['تفاعل لافت للأنظار', 'صدارة مميزة'], en: ['Incredible viral traction', 'Cohesive authority style'] },
                             accentColor: '#FF2D7A',
                             image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800',
-                            visible: true
+                            visible: true,
+                            logoUrl: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&q=80&w=400",
+                            coverUrl: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1200",
+                            mediaUrl: type.key === 'youtube' ? "ScMzIvxBSi4" : "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1200",
+                            postText: {
+                              ar: type.key === 'youtube' ? "هوية بصرية متكاملة: من اللوجو ثلاثي الأبعاد إلى الأغلفة والفيديوهات الحركية عالية الاحتفاظ بالجمهور." : "متحمسون لمشاركة تصميم الغلاف الجديد معكم! قمنا بدمج درجات النيون الفاخرة مع الأيقونات ثلاثية الأبعاد لخلق انطباع بصري استثنائي ⚡️",
+                              en: type.key === 'youtube' ? "A comprehensive brand ecosystem: from 3D logos to high-retention covers and cinematic edits." : "Excited to share our brand-new page design! Combining high-intensity neon gradients with 3D fluid glass textures to lock viewer engagement."
+                            }
                           };
                           updateSiteData({ caseStudies: [...siteData.caseStudies, newCS] });
                         }}
@@ -1106,6 +1236,162 @@ export default function AdminPanel({ lang, onClose }: AdminPanelProps) {
                     ))}
                   </div>
                 </div>
+              </div>
+            </div>
+          )}
+
+          {/* TAB 4.5: COVERS & ARTWORKS WALL (THUMBNAILS) */}
+          {activeTab === 'thumbnails' && (
+            <div className="space-y-8 max-w-3xl">
+              <div className="space-y-1">
+                <h3 className="text-lg font-display font-bold text-white">
+                  {lang === 'ar' ? 'أعمال الأغلفة والبوسترات الفنية' : 'Covers & Artworks Wall'}
+                </h3>
+                <p className="text-xs text-gray-400">
+                  {lang === 'ar' ? 'أضف واحذف وعدل صور الأغلفة والبوسترات ثلاثية الأبعاد التي تظهر في الجدار الفني.' : 'Manage cinematic thumbnails, 3D artwork composites, and CTR metrics.'}
+                </p>
+              </div>
+
+              {/* Toggle entire section */}
+              <div className="p-4 rounded-xl bg-[#0d071c]/30 border border-white/5 flex items-center justify-between">
+                <div>
+                  <p className="text-xs font-bold text-white">{lang === 'ar' ? 'تفعيل قسم الجدار الفني بالكامل' : 'Enable Artworks Wall Section'}</p>
+                </div>
+                <button 
+                  onClick={() => updateSiteData({ showThumbnailsWallSection: !siteData.showThumbnailsWallSection })}
+                  className={`p-2 rounded-xl border transition-all ${
+                    siteData.showThumbnailsWallSection 
+                      ? 'bg-[#FF2D7A]/15 border-[#FF2D7A]/40 text-[#FF2D7A]' 
+                      : 'bg-white/5 border-white/10 text-gray-500'
+                  }`}
+                >
+                  {siteData.showThumbnailsWallSection ? <Eye size={16} /> : <EyeOff size={16} />}
+                </button>
+              </div>
+
+              {/* Thumbnails list editor */}
+              <div className="space-y-4">
+                {siteData.thumbnailsList?.map((thumb, idx) => (
+                  <div key={thumb.id} className="p-6 rounded-2xl bg-[#0d071c]/50 border border-white/5 space-y-4">
+                    <div className="flex items-center justify-between border-b border-white/5 pb-3">
+                      <div className="flex items-center gap-3">
+                        {thumb.imageUrl && (
+                          <img 
+                            src={thumb.imageUrl} 
+                            alt="thumbnail" 
+                            referrerPolicy="no-referrer"
+                            className="w-12 h-12 rounded object-cover border border-white/10" 
+                          />
+                        )}
+                        <h4 className="text-sm font-bold text-white">
+                          {thumb.title[lang]}
+                        </h4>
+                      </div>
+
+                      <button
+                        onClick={() => {
+                          const updated = siteData.thumbnailsList.filter(t => t.id !== thumb.id);
+                          updateSiteData({ thumbnailsList: updated });
+                        }}
+                        className="p-1.5 rounded-lg text-gray-500 hover:text-red-400 hover:bg-red-500/10 transition-all"
+                        title="Delete Artwork"
+                      >
+                        <Trash2 size={14} />
+                      </button>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="space-y-1">
+                        <label className="text-[10px] text-gray-400">{lang === 'ar' ? 'العنوان الفني (عربي)' : 'Artwork Title (Ar)'}</label>
+                        <input 
+                          type="text"
+                          value={thumb.title.ar}
+                          onChange={(e) => {
+                            const updated = [...siteData.thumbnailsList];
+                            updated[idx].title.ar = e.target.value;
+                            updateSiteData({ thumbnailsList: updated });
+                          }}
+                          className="w-full px-3 py-2 text-xs rounded-lg bg-white/5 border border-white/10 text-white"
+                        />
+                      </div>
+                      <div className="space-y-1">
+                        <label className="text-[10px] text-gray-400">{lang === 'ar' ? 'العنوان الفني (إنجليزي)' : 'Artwork Title (En)'}</label>
+                        <input 
+                          type="text"
+                          value={thumb.title.en}
+                          onChange={(e) => {
+                            const updated = [...siteData.thumbnailsList];
+                            updated[idx].title.en = e.target.value;
+                            updateSiteData({ thumbnailsList: updated });
+                          }}
+                          className="w-full px-3 py-2 text-xs rounded-lg bg-white/5 border border-white/10 text-white"
+                        />
+                      </div>
+
+                      <div className="space-y-1">
+                        <label className="text-[10px] text-gray-400">{lang === 'ar' ? 'معدل النقر CTR أو علامة مميزة' : 'CTR Badge Label'}</label>
+                        <input 
+                          type="text"
+                          value={thumb.ctr || ''}
+                          onChange={(e) => {
+                            const updated = [...siteData.thumbnailsList];
+                            updated[idx].ctr = e.target.value;
+                            updateSiteData({ thumbnailsList: updated });
+                          }}
+                          placeholder="e.g. CTR: 14.2%"
+                          className="w-full px-3 py-2 text-xs rounded-lg bg-white/5 border border-white/10 text-white"
+                        />
+                      </div>
+
+                      <div className="space-y-1">
+                        <label className="text-[10px] text-gray-400">{lang === 'ar' ? 'رابط صورة الغلاف أو البوستر' : 'Image URL'}</label>
+                        <input 
+                          type="text"
+                          value={thumb.imageUrl}
+                          onChange={(e) => {
+                            const updated = [...siteData.thumbnailsList];
+                            updated[idx].imageUrl = e.target.value;
+                            updateSiteData({ thumbnailsList: updated });
+                          }}
+                          className="w-full px-3 py-2 text-xs rounded-lg bg-white/5 border border-white/10 text-white font-mono"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="flex justify-end border-t border-white/5 pt-3">
+                      <button
+                        onClick={() => {
+                          const updated = [...siteData.thumbnailsList];
+                          updated[idx].visible = !updated[idx].visible;
+                          updateSiteData({ thumbnailsList: updated });
+                        }}
+                        className={`px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 ${thumb.visible ? 'bg-green-500/10 text-green-400' : 'bg-gray-500/10 text-gray-400'}`}
+                      >
+                        {thumb.visible ? <Eye size={12} /> : <EyeOff size={12} />}
+                        <span>{thumb.visible ? (lang === 'ar' ? 'نشط' : 'Active') : (lang === 'ar' ? 'مخفي' : 'Hidden')}</span>
+                      </button>
+                    </div>
+                  </div>
+                ))}
+
+                {/* Add new thumbnail item button */}
+                <button
+                  onClick={() => {
+                    const newId = `thumb_${Date.now()}`;
+                    const newThumb: ThumbnailItem = {
+                      id: newId,
+                      title: { ar: 'تصميم غلاف سينمائي جديد', en: 'New Cinematic Cover Art' },
+                      ctr: 'CTR: 15.1%',
+                      imageUrl: 'https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800',
+                      visible: true
+                    };
+                    updateSiteData({ thumbnailsList: [...siteData.thumbnailsList, newThumb] });
+                  }}
+                  className="w-full py-4 rounded-2xl border border-dashed border-white/10 hover:border-brand-secondary/40 text-xs font-bold text-gray-400 hover:text-white transition-all flex items-center justify-center gap-2"
+                >
+                  <Plus size={16} />
+                  <span>{lang === 'ar' ? 'إضافة تصميم فني جديد للجدار' : 'Add New Art to Wall'}</span>
+                </button>
               </div>
             </div>
           )}

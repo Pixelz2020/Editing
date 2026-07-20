@@ -42,6 +42,10 @@ export interface CaseStudyItem {
   accentColor: string;
   image: string;
   visible: boolean;
+  logoUrl?: string;
+  coverUrl?: string;
+  mediaUrl?: string;
+  postText?: { ar: string; en: string };
 }
 
 // Thumbnail wall item

@@ -2,59 +2,26 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Image, Search, X, Flame } from 'lucide-react';
 import { Language } from '../types';
+import { useSiteConfig } from '../context/SiteConfigContext';
 
 interface ThumbnailsWallProps {
   lang: Language;
 }
 
 export default function ThumbnailsWall({ lang }: ThumbnailsWallProps) {
+  const { siteData } = useSiteConfig();
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
-  // High quality Unsplash placeholders representing professional YouTube thumbnails/game covers
-  const thumbnails = [
-    {
-      id: "thumb-1",
-      title: { ar: "سر النجاح المالي الصامت", en: "Silent Financial Success Secret" },
-      ctr: "15.4% CTR",
-      img: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=800",
-      gridSpan: "md:col-span-2 md:row-span-2",
-    },
-    {
-      id: "thumb-2",
-      title: { ar: "وثائقي غامض: جزيرة الأسرار", en: "Mysterious Documentary: Secret Island" },
-      ctr: "12.8% CTR",
-      img: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&q=80&w=800",
-      gridSpan: "md:col-span-1 md:row-span-1",
-    },
-    {
-      id: "thumb-3",
-      title: { ar: "مراجعة وحش الألعاب الخارق 2026", en: "Elite Gaming PC Review 2026" },
-      ctr: "14.1% CTR",
-      img: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800",
-      gridSpan: "md:col-span-1 md:row-span-1",
-    },
-    {
-      id: "thumb-4",
-      title: { ar: "كيف تصنع هوية بصرية بمليون دولار؟", en: "Build a $1M Visual Brand" },
-      ctr: "13.2% CTR",
-      img: "https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&q=80&w=800",
-      gridSpan: "md:col-span-1 md:row-span-2",
-    },
-    {
-      id: "thumb-5",
-      title: { ar: "أسرار مونتاج السينما في دقيقتين", en: "Cinematic Editing in 2 Minutes" },
-      ctr: "16.8% CTR",
-      img: "https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&q=80&w=800",
-      gridSpan: "md:col-span-1 md:row-span-1",
-    },
-    {
-      id: "thumb-6",
-      title: { ar: "رحلة جبال الإنديز: المغامرة الكاملة", en: "Andes Mountain - Full Expedition" },
-      ctr: "11.5% CTR",
-      img: "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=800",
-      gridSpan: "md:col-span-1 md:row-span-1",
-    }
-  ];
+  if (!siteData.showThumbnailsWallSection) return null;
+
+  const activeThumbnails = siteData.thumbnailsList?.filter(thumb => thumb.visible) || [];
+
+  const getGridSpan = (index: number) => {
+    const mod = index % 6;
+    if (mod === 0) return "md:col-span-2 md:row-span-2";
+    if (mod === 3) return "md:col-span-1 md:row-span-2";
+    return "md:col-span-1 md:row-span-1";
+  };
 
   return (
     <section className="py-20 bg-transparent relative border-t border-[#1A0B2E]/10 dark:border-white/5" id="thumbnails-wall">
@@ -63,65 +30,76 @@ export default function ThumbnailsWall({ lang }: ThumbnailsWallProps) {
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
           <span className="inline-flex items-center gap-1 text-xs font-mono tracking-widest text-brand-purple dark:text-brand-secondary uppercase font-bold">
             <Image size={12} />
-            <span>{lang === 'ar' ? "حائط الأغلفة ذو النقرات العالية" : "HIGH-CTR THUMBNAILS WALL"}</span>
+            <span>{lang === 'ar' ? "أعمال الأغلفة والبوسترات الفنية" : "HIGH-CTR COVERS & ARTWORK"}</span>
           </span>
           <h2 className="text-2xl sm:text-3xl font-display font-extrabold text-[#1A0B2E] dark:text-white">
-            {lang === 'ar' ? "أغلفة يوتيوب وثنائيات الأبعاد ثلاثية الأبعاد" : "Masterful 3D Photo Composites & Covers"}
+            {lang === 'ar' ? "أغلفة يوتيوب، بوسترات، وتصاميم ثنائية وثلاثية الأبعاد" : "Masterful 3D Photo Composites, Covers & Posters"}
           </h2>
           <p className="text-sm text-[#1A0B2E]/80 dark:text-gray-400 font-light">
-            {lang === 'ar' ? "انقر على أي غلاف لتشاهده بالحجم والوضوح الكامل للتفاصيل الدقيقة." : "Click on any thumbnail template to review composite lighting and pixel precision."}
+            {lang === 'ar' ? "انقر على أي تصميم لتشاهده بوضوح الدقة الكاملة للتفاصيل الإبداعية الدقيقة." : "Click on any cover template to review cinematic composites, details, and lighting precision."}
           </p>
         </div>
 
-        {/* Dense Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px]" id="thumbnails-bento-grid">
-          {thumbnails.map((item) => (
-            <motion.div
-              key={item.id}
-              whileHover={{ scale: 1.015 }}
-              onClick={() => setSelectedImage(item.img)}
-              className={`relative rounded-xl overflow-hidden cursor-zoom-in bg-black/5 border border-[#1A0B2E]/10 dark:bg-white/5 dark:border-white/5 group shadow-lg ${item.gridSpan}`}
-              id={`thumb-item-${item.id}`}
-            >
-              {/* Cover image */}
-              <img
-                src={item.img}
-                alt={item.title[lang]}
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover brightness-[0.7] group-hover:brightness-[0.4] group-hover:scale-102 transition-all duration-500"
-                id={`thumb-img-${item.id}`}
-              />
+        {/* Dynamic Bento Grid */}
+        {activeThumbnails.length === 0 ? (
+          <div className="text-center py-12 text-gray-500 font-light">
+            {lang === 'ar' ? "سيتم عرض الأغلفة والبوسترات المضافة هنا قريباً." : "Added covers and designs will appear here."}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[200px]" id="thumbnails-bento-grid">
+            {activeThumbnails.map((item, index) => {
+              const gridSpan = getGridSpan(index);
+              return (
+                <motion.div
+                  key={item.id}
+                  whileHover={{ scale: 1.015 }}
+                  onClick={() => setSelectedImage(item.imageUrl)}
+                  className={`relative rounded-xl overflow-hidden cursor-zoom-in bg-black/5 border border-[#1A0B2E]/10 dark:bg-white/5 dark:border-white/5 group shadow-lg ${gridSpan}`}
+                  id={`thumb-item-${item.id}`}
+                >
+                  {/* Cover image */}
+                  <img
+                    src={item.imageUrl}
+                    alt={item.title[lang]}
+                    referrerPolicy="no-referrer"
+                    className="w-full h-full object-cover brightness-[0.7] group-hover:brightness-[0.4] group-hover:scale-102 transition-all duration-500"
+                    id={`thumb-img-${item.id}`}
+                  />
 
-              {/* Cover ambient gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-80" />
+                  {/* Cover ambient gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent opacity-80" />
 
-              {/* Float result badge */}
-              <div className="absolute top-4 left-4" id={`thumb-badge-${item.id}`}>
-                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 bg-brand-secondary/15 border border-brand-secondary/30 text-brand-secondary text-[10px] font-mono font-bold rounded-full">
-                  <Flame size={10} className="fill-brand-secondary" />
-                  <span>{item.ctr}</span>
-                </span>
-              </div>
+                  {/* Float CTR result badge */}
+                  {item.ctr && (
+                    <div className="absolute top-4 left-4" id={`thumb-badge-${item.id}`}>
+                      <span className="inline-flex items-center gap-1 px-2.5 py-0.5 bg-brand-secondary/15 border border-brand-secondary/30 text-brand-secondary text-[10px] font-mono font-bold rounded-full">
+                        <Flame size={10} className="fill-brand-secondary" />
+                        <span>{item.ctr}</span>
+                      </span>
+                    </div>
+                  )}
 
-              {/* Lens overlay trigger */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white">
-                  <Search size={16} />
-                </div>
-              </div>
+                  {/* Lens overlay trigger */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white">
+                      <Search size={16} />
+                    </div>
+                  </div>
 
-              {/* Headline info */}
-              <div className="absolute bottom-4 left-4 right-4 pointer-events-none" id={`thumb-details-${item.id}`}>
-                <p className="text-xs text-gray-400 font-mono tracking-wider font-semibold">
-                  {lang === 'ar' ? "نموذج احترافي" : "SHOWCASE MOCK"}
-                </p>
-                <h4 className="text-sm md:text-base font-display font-bold text-white mt-1 group-hover:text-brand-secondary transition-colors duration-200 line-clamp-1">
-                  {item.title[lang]}
-                </h4>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+                  {/* Headline info */}
+                  <div className="absolute bottom-4 left-4 right-4 pointer-events-none" id={`thumb-details-${item.id}`}>
+                    <p className="text-[10px] text-gray-400 font-mono tracking-wider font-semibold uppercase">
+                      {lang === 'ar' ? "عمل احترافي" : "PROFESSIONAL WORK"}
+                    </p>
+                    <h4 className="text-sm md:text-base font-display font-bold text-white mt-1 group-hover:text-brand-secondary transition-colors duration-200 line-clamp-1">
+                      {item.title[lang]}
+                    </h4>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        )}
       </div>
 
       {/* Lightbox zoom modal */}
