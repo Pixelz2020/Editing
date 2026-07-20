@@ -18,83 +18,300 @@
   "showTeamSection": true,
   "showContactSection": true,
   "showContactCard": true,
-  "showreelUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+  "showreelUrl": "",
   "stats": {
     "projectsCount": 150,
-    "clientsCount": 45,
+    "clientsCount": 10,
     "platformsCount": 5,
-    "avgDeliveryDays": 3
+    "avgDeliveryDays": 1
   },
   "featuresList": [
     {
       "id": "feat1",
       "icon": "Shield",
-      "title": { "ar": "حقوق تجارية كاملة للمقاطع", "en": "100% Commercial Rights" },
-      "desc": { "ar": "أمان قانوني مطلق للمحتوى الخاص بك", "en": "Complete copyright security" },
+      "title": {
+        "ar": "حقوق تجارية كاملة للمقاطع",
+        "en": "100% Commercial Rights"
+      },
+      "desc": {
+        "ar": "أمان قانوني مطلق للمحتوى الخاص بك",
+        "en": "Complete copyright security"
+      },
       "visible": true
     },
     {
       "id": "feat2",
       "icon": "Clock",
-      "title": { "ar": "تعديلات واضحة وسريعة", "en": "Fast Precise Revisions" },
-      "desc": { "ar": "تعديلات فورية ودقيقة حتى الرضا", "en": "Direct & responsive adjustments" },
+      "title": {
+        "ar": "تعديلات واضحة وسريعة",
+        "en": "Fast Precise Revisions"
+      },
+      "desc": {
+        "ar": "تعديلات فورية ودقيقة حتى الرضا",
+        "en": "Direct & responsive adjustments"
+      },
       "visible": true
     },
     {
       "id": "feat3",
       "icon": "Award",
-      "title": { "ar": "جودة تليق بقنوات المليون", "en": "Million-Scale Quality" },
-      "desc": { "ar": "معايير إنتاج عالمية فائقة الإتقان", "en": "Industry-leading production standards" },
+      "title": {
+        "ar": "جودة تليق بقنوات المليون",
+        "en": "Million-Scale Quality"
+      },
+      "desc": {
+        "ar": "معايير إنتاج عالمية فائقة الإتقان",
+        "en": "Industry-leading production standards"
+      },
       "visible": true
     }
   ],
   "portfolioProjects": [
     {
       "id": "proj1",
-      "title": { "ar": "وثائقي غامض لـ بودكاست شهير", "en": "Mysterious Documentary - Famous Podcast" },
+      "title": {
+        "ar": "اعلان ترويجي يجمع بين المونتاج الطبيعي ودمج الذكاء الاصطناعي بالتعاون مع منصه  Higgsfield",
+        "en": "A promotional advertisement combining naturalistic editing with artificial intelligence integration in collaboration with the Higgsfield platform."
+      },
       "category": "youtube",
-      "result": { "ar": "+180% معدل نقر CTR", "en": "+180% CTR Increase" },
-      "desc": { "ar": "مونتاج سينمائي مع حبكة موسيقية وتعديل ألوان يبعث بالغموض والعمق البصري.", "en": "Cinematic storytelling editing paired with intense sound design and dark cinematic grading." },
-      "mediaUrl": "dQw4w9WgXcQ",
-      "tags": { "ar": ["مونتاج وثائقي", "تصحيح ألوان"], "en": ["Documentary", "Color Grading"] },
-      "visible": true,
-      "coverUrl": ""
-    },
-    {
-      "id": "proj2",
-      "title": { "ar": "سلسلة ريلز إنتاجية وتطوير الذات", "en": "Productivity Reels Series - Creator" },
-      "category": "reels",
-      "result": { "ar": "3.2 مليون مشاهدة", "en": "3.2M Combined Views" },
-      "desc": { "ar": "إنتاج 15 فيديو ريلز بإيقاع متسارع وترجمات ملونة خطفت انتباه خوارزمية إنستجرام.", "en": "Fast-paced editing of 15 reels with dynamic typography and transitions." },
-      "mediaUrl": "vT1_g9Qo46M",
-      "tags": { "ar": ["ريلز قصيرة", "ترجمات بصرية"], "en": ["Shorts/Reels", "Subtitles"] },
-      "visible": true,
-      "coverUrl": ""
+      "result": {
+        "ar": "عندما يجتمع سحر الذكاء الاصطناعي مع المونتاج",
+        "en": "عندما يجتمع سحر الذكاء الاصطناعي مع المونتاج"
+      },
+      "desc": {
+        "ar": "مونتاج سينمائي مع حبكة موسيقية وتعديل ألوان يبعث بالغموض والعمق البصري.",
+        "en": "Cinematic storytelling editing paired with intense sound design and dark cinematic grading."
+      },
+      "mediaUrl": "OBrtFLX5QXw",
+      "tags": {
+        "ar": [
+          "مونتاج وثائقي",
+          "تصحيح ألوان"
+        ],
+        "en": [
+          "Documentary",
+          "Color Grading"
+        ]
+      },
+      "visible": true
     },
     {
       "id": "proj3",
-      "title": { "ar": "تجميعة وحش الألعاب الخارق بـ 1000$!", "en": "Building a Beast Gaming PC for only $1000!" },
+      "title": {
+        "ar": "مونتاج احترافي لفيديو بعنوان كيف تصنع فيلم كامل بنفس الشخصية بالذكاء الاصطناعي",
+        "en": "Professional video editing titled \"How to create a full movie with the same character using artificial intelligence\""
+      },
       "category": "youtube",
-      "result": { "ar": "14.2% نسبة النقر", "en": "14.2% Click-Through-Rate" },
-      "desc": { "ar": "دمج صور ثلاثي الأبعاد مع تعديل إضاءة فاقع يحفز المشاهد على النقر الفوري.", "en": "Photocompositing and saturated visual styling to guarantee high-CTR recommendations." },
-      "mediaUrl": "ScMzIvxBSi4",
-      "tags": { "ar": ["مونتاج ألعاب", "إضاءة نيون"], "en": ["Gaming Edit", "Lighting FX"] },
-      "visible": true,
-      "coverUrl": ""
+      "result": {
+        "ar": "تفاصيل بتغير نظرتك للفيديو",
+        "en": "تفاصيل بتغير نظرتك للفيديو"
+      },
+      "desc": {
+        "ar": "دمج صور ثلاثي الأبعاد مع تعديل إضاءة فاقع يحفز المشاهد على النقر الفوري.",
+        "en": "Photocompositing and saturated visual styling to guarantee high-CTR recommendations."
+      },
+      "mediaUrl": "jKyq-4l8Qqg",
+      "tags": {
+        "ar": [
+          "مونتاج ألعاب",
+          "إضاءة نيون"
+        ],
+        "en": [
+          "Gaming Edit",
+          "Lighting FX"
+        ]
+      },
+      "visible": true
+    },
+    {
+      "id": "proj_1784547710686",
+      "title": {
+        "ar": "مونتاج لفيديو ريل لدكتوره تجميل يتحدث عن عمليه تجميل الانف",
+        "en": "A montage of a real video of a cosmetic surgeon talking about rhinoplasty."
+      },
+      "category": "reels",
+      "result": {
+        "ar": "مونتاج احترافي مميز",
+        "en": "مونتاج احترافي مميز"
+      },
+      "desc": {
+        "ar": "تحرير كامل وإيقاع متناغم يعزز النقر والتفاعل الفوري للجمهور.",
+        "en": "Full custom editing aligned with audience attention maps."
+      },
+      "mediaUrl": "hBFeEQObSXE",
+      "tags": {
+        "ar": [
+          "مونتاج",
+          "تصميم حركة"
+        ],
+        "en": [
+          "Editor",
+          "Visuals"
+        ]
+      },
+      "visible": true
+    },
+    {
+      "id": "proj_1784549375580",
+      "title": {
+        "ar": "فيديو يجمع بين المونتاج الطبيعي ودمج الذكاء الاصطناعي لتطبيق اندرويد",
+        "en": "A video combining natural editing and artificial intelligence integration for an Android application."
+      },
+      "category": "youtube",
+      "result": {
+        "ar": "تأثير سينمائي مميز",
+        "en": "Stunning cinematic performance"
+      },
+      "desc": {
+        "ar": "تحرير كامل وإيقاع متناغم يعزز النقر والتفاعل الفوري للجمهور.",
+        "en": "Full custom editing aligned with audience attention maps."
+      },
+      "mediaUrl": "Wa22eCvtbrw",
+      "tags": {
+        "ar": [
+          "مونتاج",
+          "تصميم حركة"
+        ],
+        "en": [
+          "Editor",
+          "Visuals"
+        ]
+      },
+      "visible": true
+    },
+    {
+      "id": "proj_1784549448723",
+      "title": {
+        "ar": "قصه للاطفال تم انتاجها باستخدام ادوات المونتاج و  Ai ",
+        "en": "A children's story produced using editing tools and AI."
+      },
+      "category": "youtube",
+      "result": {
+        "ar": "قصه كامله بتاثيرات مبهره",
+        "en": "قصه كامله بتاثيرات مبهره"
+      },
+      "desc": {
+        "ar": "تحرير كامل وإيقاع متناغم يعزز النقر والتفاعل الفوري للجمهور.",
+        "en": "Full custom editing aligned with audience attention maps."
+      },
+      "mediaUrl": "G10WMtYEZ7E",
+      "tags": {
+        "ar": [
+          "مونتاج",
+          "تصميم حركة"
+        ],
+        "en": [
+          "Editor",
+          "Visuals"
+        ]
+      },
+      "visible": true
+    },
+    {
+      "id": "proj_1784550156930",
+      "title": {
+        "ar": "اعلان ترويجي لتطبيق اندرويد تم انشائه بالكامل من الصفر",
+        "en": "Promotional advertisement for an Android app built entirely from scratch"
+      },
+      "category": "reels",
+      "result": {
+        "ar": "اعلان كامل متكامل بتفاصيل مبهره",
+        "en": "اعلان كامل متكامل بتفاصيل مبهره"
+      },
+      "desc": {
+        "ar": "تحرير كامل وإيقاع متناغم يعزز النقر والتفاعل الفوري للجمهور.",
+        "en": "Full custom editing aligned with audience attention maps."
+      },
+      "mediaUrl": "2-enuZ5dmhA",
+      "tags": {
+        "ar": [
+          "مونتاج",
+          "تصميم حركة"
+        ],
+        "en": [
+          "Editor",
+          "Visuals"
+        ]
+      },
+      "visible": true
+    },
+    {
+      "id": "proj_1784550522345",
+      "title": {
+        "ar": "اعاده تصميم وتحرير فيديو ريل بالكامل لصانع محتوى ",
+        "en": "Complete redesign and editing of Reels videos for content creators"
+      },
+      "category": "reels",
+      "result": {
+        "ar": "مونتاج مميز من اول لحظه",
+        "en": "مونتاج مميز من اول لحظه"
+      },
+      "desc": {
+        "ar": "تحرير كامل وإيقاع متناغم يعزز النقر والتفاعل الفوري للجمهور.",
+        "en": "Full custom editing aligned with audience attention maps."
+      },
+      "mediaUrl": "ROQaRiTYolQ",
+      "tags": {
+        "ar": [
+          "مونتاج",
+          "تصميم حركة"
+        ],
+        "en": [
+          "Editor",
+          "Visuals"
+        ]
+      },
+      "visible": true
     }
   ],
   "caseStudies": [
     {
       "id": "case1",
       "type": "facebook",
-      "title": { "ar": "من التخبط في المتابعين إلى الصدارة", "en": "Dominating the Self-Development Space" },
-      "clientName": { "ar": "منشئي محتوى تعليمي وترفيهي", "en": "Educational & Creator Duos" },
-      "metrics": { "ar": "+450% تفاعل و 2.5M مشاهدة", "en": "+450% Engagement & 2.5M Views" },
-      "challenge": { "ar": "صناع محتوى يمتلكون أفكاراً ممتازة لكن نسبة الاحتفاظ في أول 5 ثوانٍ كانت أقل من 20%.", "en": "Outstanding content ideas but high early drops (under 20% in first 5s)." },
-      "approach": { "ar": "صممنا خطافات بصرية وصوتية قوية (Visual Hooks) مع تفعيل ترجمات منسقة ديناميكياً.", "en": "Engineered aggressive early hooks, customized word-by-word dynamic subtitle popups." },
-      "deliverables": { "ar": ["تصميم حزمة السوشيال ميديا", "إنتاج 12 فيديو ريلز أسبوعياً"], "en": ["Social kit package design", "12 High-impact Reels weekly"] },
-      "tools": ["Adobe Premiere Pro", "After Effects"],
-      "results": { "ar": ["ارتفاع الاحتفاظ لـ 72%", "+45 ألف متابع جديد"], "en": ["Audience retention peaked at 72%", "+45k new loyal followers"] },
+      "title": {
+        "ar": "من التخبط في المتابعين إلى الصدارة",
+        "en": "Dominating the Self-Development Space"
+      },
+      "clientName": {
+        "ar": "منشئي محتوى تعليمي وترفيهي",
+        "en": "Educational & Creator Duos"
+      },
+      "metrics": {
+        "ar": "+450% تفاعل و 2.5M مشاهدة",
+        "en": "+450% Engagement & 2.5M Views"
+      },
+      "challenge": {
+        "ar": "صناع محتوى يمتلكون أفكاراً ممتازة لكن نسبة الاحتفاظ في أول 5 ثوانٍ كانت أقل من 20%.",
+        "en": "Outstanding content ideas but high early drops (under 20% in first 5s)."
+      },
+      "approach": {
+        "ar": "صممنا خطافات بصرية وصوتية قوية (Visual Hooks) مع تفعيل ترجمات منسقة ديناميكياً.",
+        "en": "Engineered aggressive early hooks, customized word-by-word dynamic subtitle popups."
+      },
+      "deliverables": {
+        "ar": [
+          "تصميم حزمة السوشيال ميديا",
+          "إنتاج 12 فيديو ريلز أسبوعياً"
+        ],
+        "en": [
+          "Social kit package design",
+          "12 High-impact Reels weekly"
+        ]
+      },
+      "tools": [
+        "Adobe Premiere Pro",
+        "After Effects"
+      ],
+      "results": {
+        "ar": [
+          "ارتفاع الاحتفاظ لـ 72%",
+          "+45 ألف متابع جديد"
+        ],
+        "en": [
+          "Audience retention peaked at 72%",
+          "+45k new loyal followers"
+        ]
+      },
       "accentColor": "#FF2D7A",
       "image": "https://images.unsplash.com/photo-1622737133809-d95047b9e673?auto=format&fit=crop&q=80&w=800",
       "visible": true
@@ -102,14 +319,51 @@
     {
       "id": "case2",
       "type": "youtube",
-      "title": { "ar": "إعادة بناء الهوية البصرية لقنوات المليون", "en": "Rebuilding Visual Identity & CTR for Tech Giants" },
-      "clientName": { "ar": "قناة يوتيوب تقنية وبودكاست كندي", "en": "Canadian Tech Channel & Podcast" },
-      "metrics": { "ar": "+14.2% معدل نقر مستقر", "en": "+14.2% Stable Click-Through-Rate" },
-      "challenge": { "ar": "محتوى مذهل لكن الأغلفة والإنتروهات باهتة ومكررة وتفشل في المنافسة.", "en": "Amazing tech analysis but boring covers and generic template intros that couldn't compete." },
-      "approach": { "ar": "استخدام تقنيات دمج إضاءة نيون سينمائية في الأغلفة (ثمبنيلز) مع خطوط مخصصة وبارزة.", "en": "Applied neon-cinematic highlights with highly expressive typography on covers." },
-      "deliverables": { "ar": ["نظام ثمبنيلز احترافي", "انترو ثلاثي الأبعاد فريد"], "en": ["Design blueprint for high-CTR thumbnails", "3D animated intro sting"] },
-      "tools": ["Photoshop CC", "Cinema 4D", "DaVinci Resolve"],
-      "results": { "ar": ["ارتفاع معدل النقرات لـ 14.2%", "زيادة متوسط زمن المشاهدة بدقيقة ونصف"], "en": ["CTR soared from 4% to 14.2%", "Average watch duration increased by 1m 30s"] },
+      "title": {
+        "ar": "إعادة بناء الهوية البصرية لقنوات المليون",
+        "en": "Rebuilding Visual Identity & CTR for Tech Giants"
+      },
+      "clientName": {
+        "ar": "قناة يوتيوب تقنية وبودكاست كندي",
+        "en": "Canadian Tech Channel & Podcast"
+      },
+      "metrics": {
+        "ar": "+14.2% معدل نقر مستقر",
+        "en": "+14.2% Stable Click-Through-Rate"
+      },
+      "challenge": {
+        "ar": "محتوى مذهل لكن الأغلفة والإنتروهات باهتة ومكررة وتفشل في المنافسة.",
+        "en": "Amazing tech analysis but boring covers and generic template intros that couldn't compete."
+      },
+      "approach": {
+        "ar": "استخدام تقنيات دمج إضاءة نيون سينمائية في الأغلفة (ثمبنيلز) مع خطوط مخصصة وبارزة.",
+        "en": "Applied neon-cinematic highlights with highly expressive typography on covers."
+      },
+      "deliverables": {
+        "ar": [
+          "نظام ثمبنيلز احترافي",
+          "انترو ثلاثي الأبعاد فريد"
+        ],
+        "en": [
+          "Design blueprint for high-CTR thumbnails",
+          "3D animated intro sting"
+        ]
+      },
+      "tools": [
+        "Photoshop CC",
+        "Cinema 4D",
+        "DaVinci Resolve"
+      ],
+      "results": {
+        "ar": [
+          "ارتفاع معدل النقرات لـ 14.2%",
+          "زيادة متوسط زمن المشاهدة بدقيقة ونصف"
+        ],
+        "en": [
+          "CTR soared from 4% to 14.2%",
+          "Average watch duration increased by 1m 30s"
+        ]
+      },
       "accentColor": "#FF8A00",
       "image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=800",
       "visible": true
@@ -118,14 +372,20 @@
   "thumbnailsList": [
     {
       "id": "thumb1",
-      "title": { "ar": "سر الفوز الدائم في رماية الألعاب", "en": "Secret to Always Dominating Shooter Games" },
+      "title": {
+        "ar": "سر الفوز الدائم في رماية الألعاب",
+        "en": "Secret to Always Dominating Shooter Games"
+      },
       "ctr": "15.8% CTR",
       "imageUrl": "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=600",
       "visible": true
     },
     {
       "id": "thumb2",
-      "title": { "ar": "تجميعة وحش الألعاب الخارق بـ 1000$!", "en": "Building a Beast Gaming PC for only $1000!" },
+      "title": {
+        "ar": "تجميعة وحش الألعاب الخارق بـ 1000$!",
+        "en": "Building a Beast Gaming PC for only $1000!"
+      },
       "ctr": "14.2% CTR",
       "imageUrl": "https://images.unsplash.com/photo-1600861195091-690c92f1d2cc?auto=format&fit=crop&q=80&w=600",
       "visible": true
@@ -134,33 +394,69 @@
   "servicesList": [
     {
       "id": "long-form",
-      "title": { "ar": "مونتاج الفيديوهات الطويلة", "en": "Long-Form Video Editing" },
-      "desc": { "ar": "مونتاج سينمائي لليوتيوب، والوثائقيات، والبودكاست. سرد قصصي مذهل يحافظ على انتباه المشاهد.", "en": "Cinematic editing for YouTube, documentaries, and podcasts. Story-driven pacing." },
-      "benefit": { "ar": "متوسط زيادة الاحتفاظ بالجمهور: +45%", "en": "Average Audience Retention: +45%" },
+      "title": {
+        "ar": "مونتاج الفيديوهات الطويلة",
+        "en": "Long-Form Video Editing"
+      },
+      "desc": {
+        "ar": "مونتاج سينمائي لليوتيوب، والوثائقيات، والبودكاست. سرد قصصي مذهل يحافظ على انتباه المشاهد.",
+        "en": "Cinematic editing for YouTube, documentaries, and podcasts. Story-driven pacing."
+      },
+      "benefit": {
+        "ar": "متوسط زيادة الاحتفاظ بالجمهور: +45%",
+        "en": "Average Audience Retention: +45%"
+      },
       "icon": "Film",
       "visible": true
     },
     {
       "id": "reels",
-      "title": { "ar": "ريلز وفيديوهات قصيرة", "en": "Reels & Shorts" },
-      "desc": { "ar": "فيديوهات تيك توك، ريلز، وشورتس تخطف الأنفاس في أول 3 ثوانٍ مع ترجمات ديناميكية ومؤثرات بصرية سريعة.", "en": "Captivating TikToks, Reels, and Shorts designed to hook viewers in the first 3 seconds." },
-      "benefit": { "ar": "معاينة سريعة ونسب تفاعل قياسية", "en": "Rapid delivery & industry-leading engagement rates" },
+      "title": {
+        "ar": "ريلز وفيديوهات قصيرة",
+        "en": "Reels & Shorts"
+      },
+      "desc": {
+        "ar": "فيديوهات تيك توك، ريلز، وشورتس تخطف الأنفاس في أول 3 ثوانٍ مع ترجمات ديناميكية ومؤثرات بصرية سريعة.",
+        "en": "Captivating TikToks, Reels, and Shorts designed to hook viewers in the first 3 seconds."
+      },
+      "benefit": {
+        "ar": "معاينة سريعة ونسب تفاعل قياسية",
+        "en": "Rapid delivery & industry-leading engagement rates"
+      },
       "icon": "Tv",
       "visible": true
     },
     {
       "id": "thumbnails",
-      "title": { "ar": "تصميم غلاف يوتيوب (ثمبنيل)", "en": "Thumbnails & YouTube Covers" },
-      "desc": { "ar": "تصاميم ثمبنيل ثلاثية الأبعاد بتباين لوني مدروس يضمن تفوق الفيديو في المقترحات.", "en": "High-contrast, 3D manipulated thumbnails with meticulous text styling." },
-      "benefit": { "ar": "معدل نقر (CTR) يتجاوز الـ 12%", "en": "Click-Through-Rate (CTR) exceeding 12%" },
+      "title": {
+        "ar": "تصميم غلاف يوتيوب (ثمبنيل)",
+        "en": "Thumbnails & YouTube Covers"
+      },
+      "desc": {
+        "ar": "تصاميم ثمبنيل ثلاثية الأبعاد بتباين لوني مدروس يضمن تفوق الفيديو في المقترحات.",
+        "en": "High-contrast, 3D manipulated thumbnails with meticulous text styling."
+      },
+      "benefit": {
+        "ar": "معدل نقر (CTR) يتجاوز الـ 12%",
+        "en": "Click-Through-Rate (CTR) exceeding 12%"
+      },
       "icon": "Image",
       "visible": true
     },
     {
       "id": "motion",
-      "title": { "ar": "موشن جرافيك وانتروهات", "en": "Motion Design & Intros" },
-      "desc": { "ar": "تصميم حركي مخصص، شعارات متحركة، وإنتروهات احترافية تضفي لمسة فخامة على أعمالك.", "en": "Custom motion graphics, animated logos, and professional intros." },
-      "benefit": { "ar": "هوية بصرية متحركة ومميزة", "en": "A custom kinetic style tailored to your vibe" },
+      "title": {
+        "ar": "موشن جرافيك وانتروهات",
+        "en": "Motion Design & Intros"
+      },
+      "desc": {
+        "ar": "تصميم حركي مخصص، شعارات متحركة، وإنتروهات احترافية تضفي لمسة فخامة على أعمالك.",
+        "en": "Custom motion graphics, animated logos, and professional intros."
+      },
+      "benefit": {
+        "ar": "هوية بصرية متحركة ومميزة",
+        "en": "A custom kinetic style tailored to your vibe"
+      },
       "icon": "Sparkles",
       "visible": true
     }
@@ -169,42 +465,78 @@
     {
       "id": "step1",
       "stepNumber": "01",
-      "title": { "ar": "الاجتماع والاتفاق المبدئي (Brief)", "en": "Brief & Exploration" },
-      "desc": { "ar": "نناقش طبيعة مشروعك، الجمهور المستهدف، المراجع البصرية، والهدف الرقمي الذي تسعى له.", "en": "We dive into your goals, audience demographics, reference aesthetics, and measurable targets." },
+      "title": {
+        "ar": "الاجتماع والاتفاق المبدئي (Brief)",
+        "en": "Brief & Exploration"
+      },
+      "desc": {
+        "ar": "نناقش طبيعة مشروعك، الجمهور المستهدف، المراجع البصرية، والهدف الرقمي الذي تسعى له.",
+        "en": "We dive into your goals, audience demographics, reference aesthetics, and measurable targets."
+      },
       "visible": true
     },
     {
       "id": "step2",
       "stepNumber": "02",
-      "title": { "ar": "تحديد المراجع والأسلوب البصري", "en": "References & Styleframes" },
-      "desc": { "ar": "نعرض عليك مجموعة من الخطوط، الإضاءة، وتجانس الألوان لنستقر على نمط يخصك بمفردك.", "en": "We present visual moodboards, specific color grading samples, and typography styles for sign-off." },
+      "title": {
+        "ar": "تحديد المراجع والأسلوب البصري",
+        "en": "References & Styleframes"
+      },
+      "desc": {
+        "ar": "نعرض عليك مجموعة من الخطوط، الإضاءة، وتجانس الألوان لنستقر على نمط يخصك بمفردك.",
+        "en": "We present visual moodboards, specific color grading samples, and typography styles for sign-off."
+      },
       "visible": true
     },
     {
       "id": "step3",
       "stepNumber": "03",
-      "title": { "ar": "عمليات التعديل والمونتاج (Edit)", "en": "The Cinematic Cut" },
-      "desc": { "ar": "نبدأ بالهيكل الأساسي للمقطع، تليها الهندسة الصوتية الدقيقة، تلوين المشاهد، وإضافة الحركة.", "en": "We compile the primary storyline, execute meticulous sound design, color grade, and layer assets." },
+      "title": {
+        "ar": "عمليات التعديل والمونتاج (Edit)",
+        "en": "The Cinematic Cut"
+      },
+      "desc": {
+        "ar": "نبدأ بالهيكل الأساسي للمقطع، تليها الهندسة الصوتية الدقيقة، تلوين المشاهد، وإضافة الحركة.",
+        "en": "We compile the primary storyline, execute meticulous sound design, color grade, and layer assets."
+      },
       "visible": true
     }
   ],
   "testimonialsList": [
     {
       "id": "test1",
-      "name": { "ar": "د. طارق الجابري", "en": "Dr. Tarek Al-Jabri" },
-      "role": { "ar": "صانع محتوى وثائقي وتقني", "en": "Tech & Documentary Creator" },
+      "name": {
+        "ar": "د. طارق الجابري",
+        "en": "Dr. Tarek Al-Jabri"
+      },
+      "role": {
+        "ar": "صانع محتوى وثائقي وتقني",
+        "en": "Tech & Documentary Creator"
+      },
       "channelName": "@AlJabriTech",
-      "content": { "ar": "العمل مع هذا الستوديو نقل فيديوهاتي إلى مستوى يضاهي نتفليكس! ارتفع زمن المشاهدة بنسبة خيالية.", "en": "Partnering with this studio upgraded my channel to Netflix levels. Viewers are hooked and average watch duration skyrocketed." },
+      "content": {
+        "ar": "العمل مع هذا الستوديو نقل فيديوهاتي إلى مستوى يضاهي نتفليكس! ارتفع زمن المشاهدة بنسبة خيالية.",
+        "en": "Partnering with this studio upgraded my channel to Netflix levels. Viewers are hooked and average watch duration skyrocketed."
+      },
       "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200",
       "rating": 5,
       "visible": true
     },
     {
       "id": "test2",
-      "name": { "ar": "سارة عبد الرحمن", "en": "Sarah Abdelrahman" },
-      "role": { "ar": "مؤسسة منصة ريدجو للمغامرات", "en": "Founder of RedGo App" },
+      "name": {
+        "ar": "سارة عبد الرحمن",
+        "en": "Sarah Abdelrahman"
+      },
+      "role": {
+        "ar": "مؤسسة منصة ريدجو للمغامرات",
+        "en": "Founder of RedGo App"
+      },
       "channelName": "RedGo App",
-      "content": { "ar": "أشكرهم على الإتقان والالتزام الرهيب في إطلاق هوية تطبيقنا وتصميم صور المتجر والفيديو الترويجي.", "en": "Unbelievable mastery and dedication during our app launch. The promo trailer generated immediate viral hype." },
+      "content": {
+        "ar": "أشكرهم على الإتقان والالتزام الرهيب في إطلاق هوية تطبيقنا وتصميم صور المتجر والفيديو الترويجي.",
+        "en": "Unbelievable mastery and dedication during our app launch. The promo trailer generated immediate viral hype."
+      },
       "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=200",
       "rating": 5,
       "visible": true
@@ -213,26 +545,92 @@
   "teamMembersList": [
     {
       "id": "member1",
-      "name": { "ar": "أحمد الشريف", "en": "Ahmed El-Sherif" },
-      "role": { "ar": "شريك مؤسس / المخرج الإبداعي", "en": "Co-founder / Creative Director" },
-      "imageUrl": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=400",
+      "name": {
+        "ar": "طارق جادالحق",
+        "en": "Tarek Gad"
+      },
+      "role": {
+        "ar": "شريك مؤسس / المخرج الإبداعي",
+        "en": "Co-founder / Creative Director"
+      },
+      "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiTS1oPCzOrRWV49t_bO47nmMdOzkkjyExr_ivNGwYg3cahNFJimbki-9swVCfrNgbD7pVmrRXv8fFhN3FPy6JNyNOGcQ3bxf2qPt0dcVjhMsNVAreh8Bl3nTUqU-nNbtzZGDUVpNz6_kG-AvpEFmNFhl-1LLvEiaBwXAl79dvO_VfVEfbJqsrkWi4CuoY/w600/The%20image%20features%20a%20confident,%20smiling%20man%20wea....png",
       "visible": true
     },
     {
       "id": "member2",
-      "name": { "ar": "مازن علي", "en": "Mazen Ali" },
-      "role": { "ar": "رئيس قسم الموشن جرافيك", "en": "Lead Motion Designer" },
-      "imageUrl": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&q=80&w=400",
+      "name": {
+        "ar": "أ.فاطمه ربيع",
+        "en": "A.Fatima Rabie"
+      },
+      "role": {
+        "ar": "رئيس قسم التسويق والعلاقات الخارجيه",
+        "en": "Head of Marketing and External Relations "
+      },
+      "imageUrl": "https://fatmaana1234.github.io/fportofilo/assets/img/avatar.png",
+      "visible": true
+    },
+    {
+      "id": "member_1784551043745",
+      "name": {
+        "ar": "جو جاد",
+        "en": "Joo Gad"
+      },
+      "role": {
+        "ar": "محرر فيديو / مصمم حركة",
+        "en": "Video Editor / Lead Motion Designer"
+      },
+      "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZBD2Fkhkbk2Pz__kUrA7eJzGyOzmJkJQ4WPQ7lvZttPOmfQdyKFTUheD5QWAfilInXhd-E60TOXgYLYbK_TcYRft9MbD0YT8pr4K4aDX6rjn2kdGewUWM9IxgAcrbJQMrLLSyRpSG9FQxLwAWdW7_KFFQS3oakClXzYO46c0WIaKleIU6Q0pVgY5EydE/s320-rw/ChatGPT%20Image%20Jul%2020,%202026,%2003_47_41%20PM.png",
+      "visible": true
+    },
+    {
+      "id": "member_1784551154576",
+      "name": {
+        "ar": "محمد احمد",
+        "en": "Mohamed Ahmed"
+      },
+      "role": {
+        "ar": "محرر فيديو / جرافيك موشن",
+        "en": "Video Editor / Motion graphics"
+      },
+      "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiO9SlFxBWJXtZxH-jiJmjU4L7Is0dVCNEULGU6L_LyyteS823Fr65UgfhQA2BT0GqEOaSYbk9Ko9urAMfCGrgL5jia9Ju3pfg2PeTVtkjwT45DZLkUdXdnFYgqEkUiGg9IHsN4wuZgQNoDKmiiKmTtCIRDJeLoYMnLCLHBEXp9hDSgOvDU-mb7-R344i4/s320-rw/ChatGPT%20Image%20Jul%2020,%202026,%2004_34_36%20PM.png",
+      "visible": true
+    },
+    {
+      "id": "member_1784554529522",
+      "name": {
+        "ar": "عبده طه",
+        "en": "Abdo Taha"
+      },
+      "role": {
+        "ar": "قسم الابداع",
+        "en": "Creativity Department"
+      },
+      "imageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgsoBOSYgzgBGACJcZDdGiuPQTElnd9p6njZZ6nY0XxmowmiWg6aOwEao9p2IMv5J2Mccrj19GOEfG1p5ka_8L-uBzqL7E4MVd9wf4JF8OCERK4R3K3ru8UIdhC6xMadP4KzKLoWA2TqD9QqDZNS3CwF-5LZbvRzRyqIQ-leKRVoWqPQZlsJO02BUuXgjM/s320-rw/ChatGPT%20Image%20Jul%2020,%202026,%2004_47_55%20PM.png",
       "visible": true
     }
   ],
   "contactWhatsApp": "201012345678",
   "contactEmail": "contact@pixelzstudio.com",
   "socialLinks": {
-    "instagram": { "url": "https://instagram.com/pixelz", "visible": true },
-    "youtube": { "url": "https://youtube.com/pixelz", "visible": true },
-    "tiktok": { "url": "https://tiktok.com/@pixelz", "visible": true },
-    "facebook": { "url": "https://facebook.com/pixelz", "visible": true },
-    "behance": { "url": "https://behance.net/pixelz", "visible": true }
+    "instagram": {
+      "url": "https://instagram.com/pixelz",
+      "visible": true
+    },
+    "youtube": {
+      "url": "https://youtube.com/pixelz",
+      "visible": true
+    },
+    "tiktok": {
+      "url": "https://tiktok.com/@pixelz",
+      "visible": true
+    },
+    "facebook": {
+      "url": "https://facebook.com/pixelz",
+      "visible": true
+    },
+    "behance": {
+      "url": "https://behance.net/pixelz",
+      "visible": true
+    }
   }
 }
