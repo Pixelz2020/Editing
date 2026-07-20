@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Remix: Cinematic Studio Portfolio",
+  "description": "A world-class multi-section marketing and portfolio website for video editors, motion designers, and brand identity studios with RTL Arabic and LTR English support.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
