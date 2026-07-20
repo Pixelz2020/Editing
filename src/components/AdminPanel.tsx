@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSiteConfig, FeatureItem, ProjectItem, CaseStudyItem, ThumbnailItem, ServiceItem, TimelineStepItem, TestimonialItem, TeamMemberItem } from '../context/SiteConfigContext';
 import { 
   X, Save, Lock, Shield, Clock, Award, Plus, Trash2, ArrowUp, ArrowDown, 
-  Settings, Film, Image, Tv, Info, MessageSquare, Phone, Share2, Eye, EyeOff, Check, AlertCircle, Volume2, VolumeX, RefreshCw, Users
+  Settings, Film, Image, Tv, Info, MessageSquare, Phone, Share2, Eye, EyeOff, Check, AlertCircle, Volume2, VolumeX, RefreshCw, Users, Download
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Language } from '../types';
@@ -80,6 +80,21 @@ export default function AdminPanel({ lang, onClose }: AdminPanelProps) {
     setTimeout(() => {
       setIsSaving(false);
     }, 1200);
+  };
+
+  // Export siteData.json action
+  const handleExportConfig = () => {
+    const dataStr = JSON.stringify(siteData, null, 2);
+    const dataBlob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(dataBlob);
+    
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'siteData.json';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   };
 
   // Render Login view if not logged in
@@ -196,6 +211,15 @@ export default function AdminPanel({ lang, onClose }: AdminPanelProps) {
                 <span>{lang === 'ar' ? 'حفظ التغييرات' : 'Save Changes'}</span>
               </>
             )}
+          </button>
+
+          <button
+            onClick={handleExportConfig}
+            className="px-5 py-2.5 rounded-xl text-xs font-black bg-white/10 hover:bg-white/15 text-white border border-white/10 transition-all flex items-center gap-2 shadow-md cursor-pointer"
+            title={lang === 'ar' ? 'تصدير الإعدادات كملف JSON' : 'Export settings as JSON'}
+          >
+            <Download size={14} />
+            <span>{lang === 'ar' ? 'تصدير الإعدادات (Export Config)' : 'Export Config'}</span>
           </button>
 
           <button 
@@ -743,6 +767,58 @@ export default function AdminPanel({ lang, onClose }: AdminPanelProps) {
                           }}
                           placeholder="vT1_g9Qo46M"
                           className="w-full px-3 py-2 text-xs rounded-lg bg-white/5 border border-white/10 text-white font-mono"
+                        />
+                      </div>
+
+                      {/* Description (Arabic) */}
+                      <div className="space-y-1">
+                        <label className="text-[10px] text-gray-400">{lang === 'ar' ? 'الوصف / التعريف (عربي)' : 'Description / Definition (Ar)'}</label>
+                        <textarea 
+                          value={proj.desc?.ar || ''}
+                          onChange={(e) => {
+                            const updated = [...siteData.portfolioProjects];
+                            if (!updated[idx].desc) updated[idx].desc = { ar: '', en: '' };
+                            updated[idx].desc.ar = e.target.value;
+                            updateSiteData({ portfolioProjects: updated });
+                          }}
+                          rows={2}
+                          className="w-full px-3 py-2 text-xs rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D7A]/40"
+                        />
+                      </div>
+
+                      {/* Description (English) */}
+                      <div className="space-y-1">
+                        <label className="text-[10px] text-gray-400">{lang === 'ar' ? 'الوصف / التعريف (إنجليزي)' : 'Description / Definition (En)'}</label>
+                        <textarea 
+                          value={proj.desc?.en || ''}
+                          onChange={(e) => {
+                            const updated = [...siteData.portfolioProjects];
+                            if (!updated[idx].desc) updated[idx].desc = { ar: '', en: '' };
+                            updated[idx].desc.en = e.target.value;
+                            updateSiteData({ portfolioProjects: updated });
+                          }}
+                          rows={2}
+                          className="w-full px-3 py-2 text-xs rounded-lg bg-white/5 border border-white/10 text-white focus:outline-none focus:border-[#FF2D7A]/40"
+                        />
+                      </div>
+
+                      {/* Cover URL */}
+                      <div className="space-y-1 md:col-span-2">
+                        <label className="text-[10px] text-gray-400">
+                          {lang === 'ar' 
+                            ? 'رابط صورة الغلاف (اختياري - يظهر كواجهة فيديو ريلز قبل التشغيل)' 
+                            : 'Cover Image URL (Optional - visible for reels as thumbnail before play)'}
+                        </label>
+                        <input 
+                          type="text"
+                          value={proj.coverUrl || ''}
+                          onChange={(e) => {
+                            const updated = [...siteData.portfolioProjects];
+                            updated[idx].coverUrl = e.target.value;
+                            updateSiteData({ portfolioProjects: updated });
+                          }}
+                          placeholder={lang === 'ar' ? '/src/assets/images/cover.jpg' : '/src/assets/images/cover.jpg'}
+                          className="w-full px-3 py-2.5 text-xs rounded-lg bg-white/5 border border-white/10 text-white font-mono focus:outline-none focus:border-[#FF2D7A]/40"
                         />
                       </div>
                     </div>

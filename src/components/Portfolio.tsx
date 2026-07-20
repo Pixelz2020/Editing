@@ -128,6 +128,11 @@ export default function Portfolio({ lang }: PortfolioProps) {
   
   // Reels mobile index tracker
   const [activeReelIndex, setActiveReelIndex] = useState(0);
+
+  // Reels desktop index tracker for slider when count > 3
+  const [desktopStartIndex, setDesktopStartIndex] = useState(0);
+  const maxDesktopIndex = Math.max(0, reelsList.length - 3);
+  const safeDesktopIndex = Math.min(desktopStartIndex, maxDesktopIndex);
   
   // YouTube mobile index tracker
   const [activeYTIndex, setActiveYTIndex] = useState(0);
@@ -247,18 +252,89 @@ export default function Portfolio({ lang }: PortfolioProps) {
             >
               {reelsList.length > 0 ? (
                 <>
-                  {/* DESKTOP VIEW: 3 Phones Side-by-Side */}
-                  <div className="hidden lg:grid lg:grid-cols-3 gap-8 justify-center items-center max-w-5xl mx-auto">
-                    {reelsList.map((reel) => (
-                      <PhoneFrame 
-                        key={reel.id} 
-                        videoId={reel.videoId} 
-                        title={reel.title[lang]} 
-                        lang={lang}
-                        onMaximize={() => setLightboxVideoId(reel.videoId)}
-                      />
-                    ))}
-                  </div>
+                  {/* DESKTOP VIEW */}
+                  {reelsList.length <= 3 ? (
+                    /* Center-aligned flex layout when there are 1, 2, or 3 items */
+                    <div className="hidden lg:flex flex-wrap gap-8 justify-center items-center max-w-5xl mx-auto">
+                      {reelsList.map((reel) => (
+                        <div key={reel.id} className="w-[260px] shrink-0">
+                          <PhoneFrame 
+                            videoId={reel.videoId} 
+                            title={reel.title[lang]} 
+                            desc={reel.desc?.[lang]}
+                            result={reel.result?.[lang]}
+                            coverUrl={reel.coverUrl}
+                            lang={lang}
+                            onMaximize={() => setLightboxVideoId(reel.videoId)}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    /* Horizontal Slider/Carousel for more than 3 items */
+                    <div className="hidden lg:flex items-center justify-center gap-6 max-w-6xl mx-auto relative px-4">
+                      {/* Left Control Arrow */}
+                      <button
+                        onClick={() => {
+                          playAudio.playClick();
+                          setDesktopStartIndex(prev => Math.max(0, prev - 1));
+                        }}
+                        disabled={safeDesktopIndex === 0}
+                        className={`p-3.5 rounded-full bg-black/40 border border-white/10 text-white hover:bg-white/10 active:scale-95 transition-all cursor-pointer select-none shrink-0 ${
+                          safeDesktopIndex === 0 ? 'opacity-30 cursor-not-allowed' : ''
+                        }`}
+                        aria-label="Previous Slide"
+                      >
+                        <ArrowLeft size={22} className="rtl:rotate-180" />
+                      </button>
+
+                      {/* Sliding Window Container */}
+                      <div className="flex-1 overflow-hidden">
+                        <motion.div 
+                          className="flex gap-8 justify-center items-center py-4"
+                          layout
+                          transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+                        >
+                          {reelsList.slice(safeDesktopIndex, safeDesktopIndex + 3).map((reel) => (
+                            <motion.div 
+                              key={reel.id} 
+                              className="w-[260px] shrink-0"
+                              initial={{ opacity: 0, scale: 0.95 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              exit={{ opacity: 0, scale: 0.95 }}
+                              layoutId={`desktop-reel-${reel.id}`}
+                              transition={{ duration: 0.3 }}
+                            >
+                              <PhoneFrame 
+                                videoId={reel.videoId} 
+                                title={reel.title[lang]} 
+                                desc={reel.desc?.[lang]}
+                                result={reel.result?.[lang]}
+                                coverUrl={reel.coverUrl}
+                                lang={lang}
+                                onMaximize={() => setLightboxVideoId(reel.videoId)}
+                              />
+                            </motion.div>
+                          ))}
+                        </motion.div>
+                      </div>
+
+                      {/* Right Control Arrow */}
+                      <button
+                        onClick={() => {
+                          playAudio.playClick();
+                          setDesktopStartIndex(prev => Math.min(reelsList.length - 3, prev + 1));
+                        }}
+                        disabled={safeDesktopIndex >= maxDesktopIndex}
+                        className={`p-3.5 rounded-full bg-black/40 border border-white/10 text-white hover:bg-white/10 active:scale-95 transition-all cursor-pointer select-none shrink-0 ${
+                          safeDesktopIndex >= maxDesktopIndex ? 'opacity-30 cursor-not-allowed' : ''
+                        }`}
+                        aria-label="Next Slide"
+                      >
+                        <ArrowRight size={22} className="rtl:rotate-180" />
+                      </button>
+                    </div>
+                  )}
 
                   {/* MOBILE VIEW: 1 Phone with Left/Right Arrows */}
                   <div className="lg:hidden flex items-center justify-between gap-4 max-w-[340px] mx-auto relative px-2">
@@ -275,6 +351,9 @@ export default function Portfolio({ lang }: PortfolioProps) {
                         key={reelsList[activeReelIndex]?.id || 'fallback-reel'}
                         videoId={reelsList[activeReelIndex]?.videoId || ''}
                         title={reelsList[activeReelIndex]?.title?.[lang] || ''}
+                        desc={reelsList[activeReelIndex]?.desc?.[lang]}
+                        result={reelsList[activeReelIndex]?.result?.[lang]}
+                        coverUrl={reelsList[activeReelIndex]?.coverUrl}
                         lang={lang}
                         onMaximize={() => setLightboxVideoId(reelsList[activeReelIndex]?.videoId || '')}
                       />
@@ -440,12 +519,16 @@ interface PhoneFrameProps {
   key?: any;
   videoId: string;
   title: string;
+  desc?: string;
+  result?: string;
+  coverUrl?: string;
   lang: Language;
   onMaximize: () => void;
 }
 
-function PhoneFrame({ videoId, title, lang, onMaximize }: PhoneFrameProps) {
+function PhoneFrame({ videoId, title, desc, result, coverUrl, lang, onMaximize }: PhoneFrameProps) {
   const [isPlaying, setIsPlaying] = useState(false);
+  const bgImage = coverUrl ? coverUrl : `https://img.youtube.com/vi/${videoId}/0.jpg`;
 
   return (
     <div className="relative w-full max-w-[260px] mx-auto aspect-[9/18.5] rounded-[42px] bg-[#0c0517] border-[6px] border-[#1e0a35] shadow-[0_0_35px_rgba(255,45,122,0.12)] hover:shadow-[0_0_50px_rgba(255,45,122,0.22)] hover:border-brand-secondary/30 overflow-hidden group transition-all duration-500">
@@ -471,21 +554,33 @@ function PhoneFrame({ videoId, title, lang, onMaximize }: PhoneFrameProps) {
             setIsPlaying(true);
           }}
           className="w-full h-full absolute inset-0 cursor-pointer flex items-center justify-center bg-cover bg-center z-10"
-          style={{ backgroundImage: `url(https://img.youtube.com/vi/${videoId}/0.jpg)` }}
+          style={{ backgroundImage: `url(${bgImage})` }}
         >
           {/* Dark overlay with hover transitions */}
           <div className="absolute inset-0 bg-black/60 group-hover:bg-black/45 transition-colors duration-300" />
           
+          {/* Performance Pill Badge */}
+          {result && (
+            <div className="absolute top-10 right-4 z-20 px-2.5 py-0.5 rounded-full bg-brand-secondary/90 text-white text-[9px] font-black uppercase tracking-wider shadow-lg backdrop-blur-sm border border-white/10">
+              {result}
+            </div>
+          )}
+
           {/* Glowing Play Icon with custom interactive ripple */}
           <div className="w-14 h-14 rounded-full bg-gradient-to-tr from-[#FF2D7A] to-[#FF8A00] flex items-center justify-center text-white shadow-xl group-hover:scale-110 transition-transform duration-300 relative">
             <Play size={20} className="fill-white translate-x-0.5" />
           </div>
 
-          {/* Title banner */}
+          {/* Title and Description banner */}
           <div className="absolute bottom-8 left-4 right-4 text-center z-20">
             <p className="text-xs font-semibold text-white leading-relaxed drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]">
               {title}
             </p>
+            {desc && (
+              <p className="text-[10px] text-gray-300 mt-1 line-clamp-2 leading-normal drop-shadow-[0_1px_2px_rgba(0,0,0,0.8)]">
+                {desc}
+              </p>
+            )}
           </div>
         </div>
       )}
